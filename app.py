@@ -35,8 +35,8 @@ log = logging.getLogger("aadix")
 #  CONFIG
 # ============================================================
 UPSTREAM_BASE     = os.environ.get("UPSTREAM_BASE", "https://aadixsms-production.up.railway.app").rstrip("/")
-ADMIN_USER        = os.environ.get("ADMIN_USER", "aditya")
-ADMIN_PASS        = os.environ.get("ADMIN_PASS", "Aditya@2025")
+ADMIN_USER        = os.environ.get("ADMIN_USER", "aditya05712")
+ADMIN_PASS        = os.environ.get("ADMIN_PASS", "Aditya@29007")
 SECRET_KEY        = os.environ.get("SECRET_KEY", "aadix-bulletproof-fixed-secret-key-1234567890abcdef")
 DATABASE_URL      = os.environ.get("DATABASE_URL", "").strip()
 SQLITE_PATH       = os.environ.get("SQLITE_PATH", "/tmp/apikeys.db")
