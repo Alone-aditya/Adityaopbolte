@@ -1,0 +1,22 @@
+[build]
+builder = "nixpacks"
+
+[build.nixpacksPlan.phases.setup]
+nixPkgs = ["python311", "gcc"]
+
+[build.nixpacksPlan.phases.install]
+cmds = [
+  "python -m venv --copies /opt/venv",
+  ". /opt/venv/bin/activate && pip install --upgrade pip",
+  ". /opt/venv/bin/activate && pip install -r requirements.txt"
+]
+
+[deploy]
+startCommand = "gunicorn app:app --bind 0.0.0.0:$PORT --worker-class gthread --workers 1 --threads 16 --timeout 120"
+healthcheckPath = "/healthz"
+healthcheckTimeout = 100
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 10
+
+[variables]
+PYTHON_VERSION = "3.11.9"
